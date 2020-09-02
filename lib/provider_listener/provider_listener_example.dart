@@ -21,7 +21,7 @@ class ProviderListenerExample extends StatelessWidget {
             ),
             ProviderListener<StateController<int>>(
               provider: stateProvider,
-              onChange: (counter) {
+              onChange: (_, counter) {
                 if (counter.state == 5) {
                   print('当前计数器为5，触发监听。');
                 }

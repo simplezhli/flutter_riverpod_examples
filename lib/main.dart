@@ -9,6 +9,8 @@ import 'family/family_example.dart';
 import 'future_provider/future_provider_example.dart';
 import 'provider/provider_example.dart';
 import 'provider_listener/provider_listener_example.dart';
+import 'refresh_provider/refresh_provider_example.dart';
+import 'select/select_example.dart';
 import 'state_notifier_provider/state_notifier_provider_example.dart';
 import 'state_provider/state_provider_example.dart';
 import 'stream_provider/stream_provider_example.dart';
@@ -58,6 +60,8 @@ class HomePage extends StatelessWidget {
           _ListTile(title: 'Family', page: FamilyExample()),
           _ListTile(title: 'AutoDispose1', page: AutoDisposeExample1()),
           _ListTile(title: 'AutoDispose2', page: AutoDisposeExample2()),
+          _ListTile(title: 'RefreshProvider', page: RefreshProviderExample()),
+          _ListTile(title: 'Select', page: SelectExample()),
         ],
       ),
     );
