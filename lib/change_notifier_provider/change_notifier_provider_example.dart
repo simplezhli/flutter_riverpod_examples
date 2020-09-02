@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final ChangeNotifierProvider<Counter> _counterProvider = ChangeNotifierProvider((_) => Counter());
+final ChangeNotifierProvider<Counter> changeNotifierProvider = ChangeNotifierProvider((_) => Counter());
 
 class Counter extends ChangeNotifier {
   int _count = 0;
@@ -41,7 +41,7 @@ class ChangeProviderNotifierExample extends StatelessWidget {
             ),
             Consumer(
               builder: (context, watch, _) {
-                int count = watch(_counterProvider).count;
+                int count = watch(changeNotifierProvider).count;
                 return Text(
                   '$count',
                   style: Theme.of(context).textTheme.headline4,
@@ -53,7 +53,7 @@ class ChangeProviderNotifierExample extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         /// 使用read获取counterProvider。
-        onPressed: () => context.read(_counterProvider).increment(),
+        onPressed: () => context.read(changeNotifierProvider).increment(),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),

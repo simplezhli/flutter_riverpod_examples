@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod_examples/scope_provider/scope_provider_example.dart';
 import 'autoDispose/auto_dispose_example.dart';
 import 'autoDispose/auto_dispose_future_example.dart';
 import 'change_notifier_provider/change_notifier_provider_example.dart';
@@ -62,6 +63,7 @@ class HomePage extends StatelessWidget {
           _ListTile(title: 'AutoDispose2', page: AutoDisposeExample2()),
           _ListTile(title: 'RefreshProvider', page: RefreshProviderExample()),
           _ListTile(title: 'Select', page: SelectExample()),
+          _ListTile(title: 'ScopeProvider', page: ScopeProviderExample()),
         ],
       ),
     );

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:state_notifier/state_notifier.dart';
 
-final StateNotifierProvider<Counter> _counterProvider = StateNotifierProvider((_) => Counter());
+final StateNotifierProvider<Counter> stateNotifierProvider = StateNotifierProvider((_) => Counter());
 
 class Counter extends StateNotifier<int> {
   Counter() : super(0);
@@ -36,7 +36,7 @@ class StateProviderNotifierExample extends StatelessWidget {
               builder: (context, watch, _) {
                 /// 注意这里watch内要传入counterProvider.state，表示监听状态变化。
                 /// watch(counterProvider)只能用于获取Counter对象。不会导致重建。
-                int count = watch(_counterProvider.state);
+                int count = watch(stateNotifierProvider.state);
                 return Text(
                   '$count',
                   style: Theme.of(context).textTheme.headline4,
@@ -48,7 +48,7 @@ class StateProviderNotifierExample extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         /// 使用read获取counterProvider。
-        onPressed: () => context.read(_counterProvider).increment(),
+        onPressed: () => context.read(stateNotifierProvider).increment(),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
