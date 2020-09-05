@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod_examples/provider_observer.dart';
 import 'package:flutter_riverpod_examples/scope_provider/scope_provider_example.dart';
 import 'autoDispose/auto_dispose_example.dart';
 import 'autoDispose/auto_dispose_future_example.dart';
@@ -22,6 +23,9 @@ void main() {
     // 在widget tree的根部添加它，用来储存各个provider。
     ProviderScope(
       child: MyApp(),
+      observers: [
+        MyProviderObserver(),
+      ],
     ),
   );
 }
