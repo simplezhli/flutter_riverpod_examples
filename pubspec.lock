@@ -87,7 +87,7 @@ packages:
       name: hooks_riverpod
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.9.1"
+    version: "0.9.2"
   json_annotation:
     dependency: transitive
     description:
