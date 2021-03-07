@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class MyProviderObserver implements ProviderObserver {
 
   @override
-  void didAddProvider(ProviderBase<dynamic, dynamic> provider, Object value) {
+  void didAddProvider(ProviderBase<dynamic, dynamic> provider, Object? value) {
     print('add provider: $provider, value: $value');
   }
 
@@ -13,7 +13,7 @@ class MyProviderObserver implements ProviderObserver {
   }
 
   @override
-  void didUpdateProvider(ProviderBase<dynamic, dynamic> provider, Object newValue) {
+  void didUpdateProvider(ProviderBase<dynamic, dynamic> provider, Object? newValue) {
     print('update provider: $provider, newValue: $newValue');
   }
 

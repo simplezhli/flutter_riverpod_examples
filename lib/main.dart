@@ -78,9 +78,9 @@ class HomePage extends StatelessWidget {
 class _ListTile extends StatelessWidget {
 
   const _ListTile({
-    Key key,
-    @required this.title,
-    @required this.page}
+    Key? key,
+    required this.title,
+    required this.page}
    ): super(key: key);
 
   final String title;
