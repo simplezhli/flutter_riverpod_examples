@@ -68,7 +68,7 @@ packages:
       name: flutter_riverpod
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.13.1"
+    version: "0.14.0+1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -87,7 +87,7 @@ packages:
       name: hooks_riverpod
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.13.1"
+    version: "0.14.0+1"
   json_annotation:
     dependency: transitive
     description:
@@ -122,7 +122,7 @@ packages:
       name: riverpod
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.13.1"
+    version: "0.14.0+1"
   sky_engine:
     dependency: transitive
     description: flutter
