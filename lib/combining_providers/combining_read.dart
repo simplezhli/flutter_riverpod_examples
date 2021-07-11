@@ -10,7 +10,7 @@ final Provider<Location> locationProvider = Provider((ref) => Location(ref));
 class Location {
   Location(this._ref);
 
-  final ProviderReference _ref;
+  final ProviderRefBase _ref;
 
   String get label {
     final city = _ref.read(cityProvider);
@@ -22,7 +22,7 @@ class Location {
 class CombiningProviderExample1 extends ConsumerWidget {
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
+  Widget build(BuildContext context, WidgetRef watch) {
     final Location location = watch(locationProvider);
 
     return Scaffold(
