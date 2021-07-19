@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// 定义ScopedProvider
-final ScopedProvider<int> currentProductIndex = ScopedProvider<int>(null);
+final Provider<int> currentProductIndex = Provider<int>((ref) => -1);
 
 class ScopeProviderExample extends StatelessWidget {
   @override
@@ -34,8 +34,8 @@ class ProductItem extends ConsumerWidget {
   const ProductItem({Key? key}): super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final index = watch(currentProductIndex);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final index = ref.watch(currentProductIndex);
     return ListTile(title: Text('item $index'));
   }
 }

@@ -17,8 +17,8 @@ class StreamProviderExample extends StatelessWidget {
       ),
       body: Center(
         child: Consumer(
-          builder: (context, watch, _) {
-            AsyncValue<String> streamProviderValue = watch(streamProvider);
+          builder: (context, ref, _) {
+            AsyncValue<String> streamProviderValue = ref.watch(streamProvider);
             return streamProviderValue.when(
               loading: () => CircularProgressIndicator(),
               error: (error, stack) => Text('Oops, something unexpected happened'),

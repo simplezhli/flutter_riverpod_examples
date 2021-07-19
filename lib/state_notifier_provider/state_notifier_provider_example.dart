@@ -32,8 +32,8 @@ class StateProviderNotifierExample extends StatelessWidget {
               'You have pushed the button this many times:',
             ),
             Consumer(
-              builder: (context, watch, _) {
-                int count = watch(stateNotifierProvider);
+              builder: (context, ref, _) {
+                int count = ref.watch(stateNotifierProvider);
                 return Text(
                   '$count',
                   style: Theme.of(context).textTheme.headline4,

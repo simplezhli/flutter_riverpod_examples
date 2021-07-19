@@ -15,8 +15,8 @@ class CombiningProviderExample2 extends StatelessWidget {
       appBar: AppBar(title: Text('CombiningProvider')),
       body: Center(
         child: Consumer(
-          builder: (context, watch, _) {
-            final String weather = watch(weatherProvider).state;
+          builder: (context, ref, _) {
+            final String weather = ref.watch(weatherProvider).state;
             return Text('$weather',);
           },
         ),

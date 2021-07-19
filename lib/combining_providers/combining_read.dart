@@ -22,8 +22,8 @@ class Location {
 class CombiningProviderExample1 extends ConsumerWidget {
 
   @override
-  Widget build(BuildContext context, WidgetRef watch) {
-    final Location location = watch(locationProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final Location location = ref.watch(locationProvider);
 
     return Scaffold(
       appBar: AppBar(title: Text('CombiningProvider')),

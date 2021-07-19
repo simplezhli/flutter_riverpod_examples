@@ -18,8 +18,8 @@ class RefreshProviderExample extends StatelessWidget {
       ),
       body: Center(
         child: Consumer(
-          builder: (context, watch, _) {
-            AsyncValue<List<String>> productsProviderValue = watch(productsProvider);
+          builder: (context, ref, _) {
+            AsyncValue<List<String>> productsProviderValue = ref.watch(productsProvider);
             return productsProviderValue.when(
               loading: () => CircularProgressIndicator(),
               error: (error, stack) => Text('Oops, something unexpected happened'),

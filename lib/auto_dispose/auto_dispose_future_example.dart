@@ -23,8 +23,8 @@ class AutoDisposeExample2 extends StatelessWidget {
       ),
       body: Center(
         child: Consumer(
-          builder: (context, watch, _) {
-            AsyncValue<String> futureProviderValue = watch(futureProvider);
+          builder: (context, ref, _) {
+            AsyncValue<String> futureProviderValue = ref.watch(futureProvider);
             return futureProviderValue.when(
               loading: () => CircularProgressIndicator(),
               error: (error, stack) => Text('Oops, something unexpected happened'),

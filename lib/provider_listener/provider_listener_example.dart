@@ -27,9 +27,9 @@ class ProviderListenerExample extends StatelessWidget {
                 }
               },
               child: Consumer(
-                builder: (context, watch, _) {
+                builder: (context, ref, _) {
                   /// 使用Consumer(ConsumerWidget的封装)，控制刷新的范围。
-                  int count = watch(stateProvider).state;
+                  int count = ref.watch(stateProvider).state;
                   return Text(
                     '$count',
                     style: Theme.of(context).textTheme.headline4,

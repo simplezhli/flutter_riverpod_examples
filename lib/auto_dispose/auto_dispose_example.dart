@@ -20,8 +20,8 @@ class AutoDisposeExample1 extends StatelessWidget {
               'You have pushed the button this many times:',
             ),
             Consumer(
-              builder: (context, watch, _) {
-                int count = watch(autoStateProvider).state;
+              builder: (context, ref, _) {
+                int count = ref.watch(autoStateProvider).state;
                 return Text(
                   '$count',
                   style: Theme.of(context).textTheme.headline4,

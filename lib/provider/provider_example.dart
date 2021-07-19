@@ -9,8 +9,8 @@ final Provider<String> helloWorldProvider = Provider((_) => 'Hello World!');
 class ProviderExample extends ConsumerWidget {
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final String value = watch(helloWorldProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final String value = ref.watch(helloWorldProvider);
 
     return Scaffold(
       appBar: AppBar(title: Text('Provider')),

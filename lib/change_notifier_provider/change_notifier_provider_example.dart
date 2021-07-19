@@ -40,8 +40,8 @@ class ChangeProviderNotifierExample extends StatelessWidget {
               'You have pushed the button this many times:',
             ),
             Consumer(
-              builder: (context, watch, _) {
-                int count = watch(changeNotifierProvider).count;
+              builder: (context, ref, _) {
+                int count = ref.watch(changeNotifierProvider).count;
                 return Text(
                   '$count',
                   style: Theme.of(context).textTheme.headline4,

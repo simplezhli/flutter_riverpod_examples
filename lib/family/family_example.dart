@@ -15,9 +15,9 @@ class FamilyExample extends StatelessWidget {
       appBar: AppBar(title: Text('Family')),
       body: Center(
         child: Consumer(
-          builder: (context, watch, _) {
+          builder: (context, ref, _) {
             /// 这里可以传参“London”
-            final String weather = watch(_weatherProvider('London'));
+            final String weather = ref.watch(_weatherProvider('London'));
             return Text('$weather',);
           },
         ),
