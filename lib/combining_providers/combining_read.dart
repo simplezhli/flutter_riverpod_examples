@@ -3,14 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final Provider<String> cityProvider = Provider((ref) => 'London');
-final Provider<String> countryProvider = Provider((ref) => 'England');
-final Provider<Location> locationProvider = Provider((ref) => Location(ref));
+final Provider<String> cityProvider = Provider<String>((ref) => 'London');
+final Provider<String> countryProvider = Provider<String>((ref) => 'England');
+final Provider<Location> locationProvider = Provider<Location>((ref) => Location(ref));
 
 class Location {
   Location(this._ref);
 
-  final ProviderRefBase _ref;
+  final Ref _ref;
 
   String get label {
     final city = _ref.read(cityProvider);

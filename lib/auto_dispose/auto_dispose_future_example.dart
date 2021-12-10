@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final futureProvider = FutureProvider.autoDispose((ref) async {
+final futureProvider = FutureProvider.autoDispose<String>((ref) async {
 
   /// 延时3s
   await Future.delayed(const Duration(seconds: 3));

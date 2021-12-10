@@ -24,7 +24,7 @@ class RefreshProviderExample extends StatelessWidget {
               loading: () => CircularProgressIndicator(),
               error: (error, stack) => Text('Oops, something unexpected happened'),
               data: (list) => RefreshIndicator(
-                onRefresh: () => context.refresh(productsProvider), /// 刷新
+                onRefresh: () => ref.refresh(productsProvider.future), /// 刷新
                 child: ListView(
                   children: [
                     for (final item in list) ListTile(title: Text(item)),

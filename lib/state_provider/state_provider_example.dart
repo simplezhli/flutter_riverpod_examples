@@ -4,10 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final StateProvider<int> stateProvider = StateProvider((_) => 0);
 
-class StateProviderExample extends StatelessWidget {
+class StateProviderExample extends ConsumerWidget {
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: Text('StateProvider'),
@@ -22,7 +22,7 @@ class StateProviderExample extends StatelessWidget {
             Consumer(
               builder: (context, ref, _) {
                 /// 使用Consumer(ConsumerWidget的封装)，控制刷新的范围。
-                int count = ref.watch(stateProvider).state;
+                int count = ref.watch(stateProvider);
                 return Text(
                   '$count',
                   style: Theme.of(context).textTheme.headline4,
@@ -34,7 +34,7 @@ class StateProviderExample extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         /// 使用read获取counterProvider，操作state。
-        onPressed: () => context.read(stateProvider).state++,
+        onPressed: () => ref.read(stateProvider.state).state++,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),

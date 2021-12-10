@@ -24,10 +24,10 @@ dependencies:
   flutter:
     sdk: flutter
   # https://github.com/rrousselGit/river_pod
-  flutter_riverpod: ^1.0.0-dev.5
+  flutter_riverpod: ^1.0.2
   # hook
 #  flutter_hooks: ^0.18.0
-  hooks_riverpod: ^1.0.0-dev.5
+  hooks_riverpod: ^1.0.2
 
 dev_dependencies:
   flutter_test:

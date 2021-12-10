@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final FutureProvider<String> futureProvider = FutureProvider((_) async {
+final FutureProvider<String> futureProvider = FutureProvider<String>((_) async {
   /// 延时3s
   await Future.delayed(const Duration(seconds: 3));
   return 'Riverpod';
@@ -28,12 +28,6 @@ class FutureProviderExample extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline4,
               ),
             );
-            /// 或
-//            final String name = futureProviderValue.data?.value;
-//            return Text(
-//              'Hello ${name ?? '...'}',
-//              style: Theme.of(context).textTheme.headline4,
-//            );
           },
         ),
       ),

@@ -2,8 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// 定义ScopedProvider
-final Provider<int> currentProductIndex = Provider<int>((ref) => -1);
+final Provider<int> currentProductIndex = Provider<int>((_) => 0);
 
 class ScopeProviderExample extends StatelessWidget {
   @override

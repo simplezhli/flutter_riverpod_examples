@@ -2,12 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final autoStateProvider = StateProvider.autoDispose((_) => 0);
+final autoStateProvider = StateProvider.autoDispose<int>((_) => 0);
 
-class AutoDisposeExample1 extends StatelessWidget {
+class AutoDisposeExample1 extends ConsumerWidget {
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: Text('AutoDispose'),
@@ -21,7 +21,7 @@ class AutoDisposeExample1 extends StatelessWidget {
             ),
             Consumer(
               builder: (context, ref, _) {
-                int count = ref.watch(autoStateProvider).state;
+                int count = ref.watch(autoStateProvider);
                 return Text(
                   '$count',
                   style: Theme.of(context).textTheme.headline4,
@@ -32,7 +32,7 @@ class AutoDisposeExample1 extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.read(autoStateProvider).state++,
+        onPressed: () => ref.read(autoStateProvider.state).state++,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),

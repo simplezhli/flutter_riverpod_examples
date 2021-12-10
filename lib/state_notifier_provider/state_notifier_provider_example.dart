@@ -16,10 +16,10 @@ class Counter extends StateNotifier<int> {
   }
 }
 
-class StateProviderNotifierExample extends StatelessWidget {
+class StateProviderNotifierExample extends ConsumerWidget {
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: Text('StateNotifierProvider'),
@@ -45,7 +45,7 @@ class StateProviderNotifierExample extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         /// 使用read获取counterProvider。
-        onPressed: () => context.read(stateNotifierProvider.notifier).increment(),
+        onPressed: () => ref.read(stateNotifierProvider.notifier).increment(),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),

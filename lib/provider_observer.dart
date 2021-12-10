@@ -1,7 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MyProviderObserver implements ProviderObserver {
-
   @override
   void didAddProvider(ProviderBase provider, Object? value, ProviderContainer container) {
     print('add provider: $provider, value: $value');
@@ -17,4 +16,8 @@ class MyProviderObserver implements ProviderObserver {
     print('update provider: $provider, newValue: $newValue');
   }
 
+  @override
+  void providerDidFail(ProviderBase provider, Object error, StackTrace stackTrace, ProviderContainer container) {
+
+  }
 }
