@@ -36,8 +36,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Riverpod Example',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        useMaterial3: true
       ),
       home: HomePage(),
     );

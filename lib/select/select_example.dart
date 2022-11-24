@@ -2,7 +2,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final ChangeNotifierProvider<Person> personProvider = ChangeNotifierProvider((_) => Person());
 
@@ -34,7 +34,7 @@ class SelectExample extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            HookConsumer(
+            Consumer(
               builder: (_, ref, __) {
                 String name = ref.watch(personProvider.select((p) => p.name));
                 return Text(
@@ -42,7 +42,7 @@ class SelectExample extends ConsumerWidget {
                 );
               },
             ),
-            HookConsumer(
+            Consumer(
               builder: (_, ref, __) {
                 int age = ref.watch(personProvider.select((p) => p.age));
                 return Text(

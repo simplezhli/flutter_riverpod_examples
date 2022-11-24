@@ -32,7 +32,7 @@ class AutoDisposeExample1 extends ConsumerWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => ref.read(autoStateProvider.state).state++,
+        onPressed: () => ref.read(autoStateProvider.notifier).state++,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),

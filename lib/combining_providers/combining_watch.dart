@@ -24,11 +24,11 @@ class CombiningProviderExample2 extends ConsumerWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           /// 修改状态
-          String city = ref.read(cityProvider.state).state;
+          String city = ref.read(cityProvider.notifier).state;
           if (city == 'London') {
-            ref.read(cityProvider.state).state = "Xi'an";
+            ref.read(cityProvider.notifier).state = "Xi'an";
           } else {
-            ref.read(cityProvider.state).state = 'London';
+            ref.read(cityProvider.notifier).state = 'London';
           }
         },
         tooltip: 'Refresh',

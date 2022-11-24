@@ -39,7 +39,7 @@ class ProviderListenerExample extends ConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton(
         /// 使用read获取counterProvider，操作state。
-        onPressed: () => ref.read(stateProvider.state).state++,
+        onPressed: () => ref.read(stateProvider.notifier).state++,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),

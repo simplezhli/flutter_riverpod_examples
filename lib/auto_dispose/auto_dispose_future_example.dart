@@ -8,8 +8,7 @@ final futureProvider = FutureProvider.autoDispose<String>((ref) async {
 
   /// 延时3s
   await Future.delayed(const Duration(seconds: 3));
-  /// 延时期间退出不保留结果。否则maintainState为true时，则将保留状态，下次重新进入页面时不会触发延时。
-  ref.maintainState = true;
+  /// 调用ref.keepAlive();，则将保留状态，下次重新进入页面时不会触发延时。
   return 'Riverpod';
 });
 
