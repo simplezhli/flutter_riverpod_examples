@@ -5,29 +5,31 @@ import 'package:flutter_riverpod_examples/state_provider/state_provider_example.
 
 
 class ProviderListenerExample extends ConsumerWidget {
+  const ProviderListenerExample({super.key});
+
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen(stateProvider, (previous, next) {
       if (next == 5) {
-        print('当前计数器为5，触发监听。');
+        debugPrint('当前计数器为5，触发监听。');
       }
     });
     return Scaffold(
       appBar: AppBar(
-        title: Text('ProviderListener'),
+        title: const Text('ProviderListener'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'You have pushed the button this many times:',
             ),
             Consumer(
               builder: (context, ref, _) {
                 /// 使用Consumer(ConsumerWidget的封装)，控制刷新的范围。
-                int count = ref.watch(stateProvider);
+                final int count = ref.watch(stateProvider);
                 return Text(
                   '$count',
                   style: Theme.of(context).textTheme.headline4,
@@ -41,7 +43,7 @@ class ProviderListenerExample extends ConsumerWidget {
         /// 使用read获取counterProvider，操作state。
         onPressed: () => ref.read(stateProvider.notifier).state++,
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

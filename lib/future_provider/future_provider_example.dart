@@ -9,20 +9,22 @@ final FutureProvider<String> futureProvider = FutureProvider<String>((_) async {
 });
 
 class FutureProviderExample extends StatelessWidget {
+  const FutureProviderExample({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FutureProvider'),
+        title: const Text('FutureProvider'),
       ),
       body: Center(
         child: Consumer(
           builder: (context, ref, _) {
-            AsyncValue<String> futureProviderValue = ref.watch(futureProvider);
+            final AsyncValue<String> futureProviderValue = ref.watch(futureProvider);
             return futureProviderValue.when(
-              loading: () => CircularProgressIndicator(),
-              error: (error, stack) => Text('Oops, something unexpected happened'),
+              loading: () => const CircularProgressIndicator(),
+              error: (error, stack) => const Text('Oops, something unexpected happened'),
               data: (value) => Text(
                 'Hello $value',
                 style: Theme.of(context).textTheme.headline4,

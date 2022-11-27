@@ -23,12 +23,14 @@ class Person extends ChangeNotifier {
 }
 
 class SelectExample extends ConsumerWidget {
+  const SelectExample({super.key});
+
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Select Example'),
+        title: const Text('Select Example'),
       ),
       body: Center(
         child: Column(
@@ -36,7 +38,7 @@ class SelectExample extends ConsumerWidget {
           children: <Widget>[
             Consumer(
               builder: (_, ref, __) {
-                String name = ref.watch(personProvider.select((p) => p.name));
+                final String name = ref.watch(personProvider.select((p) => p.name));
                 return Text(
                   'name:$name',
                 );
@@ -44,7 +46,7 @@ class SelectExample extends ConsumerWidget {
             ),
             Consumer(
               builder: (_, ref, __) {
-                int age = ref.watch(personProvider.select((p) => p.age));
+                final int age = ref.watch(personProvider.select((p) => p.age));
                 return Text(
                   'age:$age',
                 );
@@ -57,7 +59,7 @@ class SelectExample extends ConsumerWidget {
         // 这里age变化时，只有对应的Text会变化。
         onPressed: () => ref.read(personProvider).age = Random.secure().nextInt(100),
         tooltip: 'Refresh',
-        child: Icon(Icons.refresh),
+        child: const Icon(Icons.refresh),
       ),
     );
   }

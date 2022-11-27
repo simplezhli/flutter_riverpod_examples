@@ -22,15 +22,17 @@ void main() {
     // 添加“ProviderScope”。所有使用Riverpod的Flutter程序都必须
     // 在widget tree的根部添加它，用来储存各个provider。
     ProviderScope(
-      child: MyApp(),
       observers: [
         MyProviderObserver(),
       ],
+      child: const MyApp(),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,20 +42,22 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         useMaterial3: true
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Riverpod Example'),
+        title: const Text('Riverpod Example'),
       ),
       body: ListView(
-        children: [
+        children: const [
           _ListTile(title: 'Provider', page: ProviderExample()),
           _ListTile(title: 'StateProvider', page: StateProviderExample()),
           _ListTile(title: 'StateNotifierProvider', page: StateProviderNotifierExample()),
@@ -79,10 +83,9 @@ class HomePage extends StatelessWidget {
 class _ListTile extends StatelessWidget {
 
   const _ListTile({
-    Key? key,
     required this.title,
     required this.page}
-   ): super(key: key);
+   );
 
   final String title;
   final Widget page;
@@ -100,4 +103,3 @@ class _ListTile extends StatelessWidget {
     );
   }
 }
-

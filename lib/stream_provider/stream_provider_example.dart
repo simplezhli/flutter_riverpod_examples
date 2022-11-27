@@ -8,20 +8,22 @@ final StreamProvider<String> streamProvider = StreamProvider((_) async* {
 });
 
 class StreamProviderExample extends StatelessWidget {
+  const StreamProviderExample({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('StreamProvider'),
+        title: const Text('StreamProvider'),
       ),
       body: Center(
         child: Consumer(
           builder: (context, ref, _) {
-            AsyncValue<String> streamProviderValue = ref.watch(streamProvider);
+            final AsyncValue<String> streamProviderValue = ref.watch(streamProvider);
             return streamProviderValue.when(
-              loading: () => CircularProgressIndicator(),
-              error: (error, stack) => Text('Oops, something unexpected happened'),
+              loading: () => const CircularProgressIndicator(),
+              error: (error, stack) => const Text('Oops, something unexpected happened'),
               data: (value) => Text(
                 'Hello $value',
                 style: Theme.of(context).textTheme.headline4,

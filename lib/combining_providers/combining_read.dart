@@ -20,15 +20,17 @@ class Location {
 }
 
 class CombiningProviderExample1 extends ConsumerWidget {
+  const CombiningProviderExample1({super.key});
+
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final Location location = ref.watch(locationProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text('CombiningProvider')),
+      appBar: AppBar(title: const Text('CombiningProvider')),
       body: Center(
-        child: Text('${location.label}'),
+        child: Text(location.label),
       ),
     );
   }

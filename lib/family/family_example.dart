@@ -8,16 +8,18 @@ final _weatherProvider = Provider.family<String, String>((ref, city) {
 });
 
 class FamilyExample extends StatelessWidget {
+  const FamilyExample({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Family')),
+      appBar: AppBar(title: const Text('Family')),
       body: Center(
         child: Consumer(
           builder: (context, ref, _) {
             /// 这里可以传参“London”
             final String weather = ref.watch(_weatherProvider('London'));
-            return Text('$weather',);
+            return Text(weather,);
           },
         ),
       ),

@@ -17,23 +17,25 @@ class Counter extends StateNotifier<int> {
 }
 
 class StateProviderNotifierExample extends ConsumerWidget {
+  const StateProviderNotifierExample({super.key});
+
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('StateNotifierProvider'),
+        title: const Text('StateNotifierProvider'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'You have pushed the button this many times:',
             ),
             Consumer(
               builder: (context, ref, _) {
-                int count = ref.watch(stateNotifierProvider);
+                final int count = ref.watch(stateNotifierProvider);
                 return Text(
                   '$count',
                   style: Theme.of(context).textTheme.headline4,
@@ -47,7 +49,7 @@ class StateProviderNotifierExample extends ConsumerWidget {
         /// 使用read获取counterProvider。
         onPressed: () => ref.read(stateNotifierProvider.notifier).increment(),
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

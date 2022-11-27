@@ -5,11 +5,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final Provider<int> currentProductIndex = Provider<int>((_) => 0);
 
 class ScopeProviderExample extends StatelessWidget {
+  const ScopeProviderExample({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ScopedProvider'),
+        title: const Text('ScopedProvider'),
       ),
       body: ListView.builder(
         itemCount: 50,
@@ -30,7 +32,7 @@ class ScopeProviderExample extends StatelessWidget {
 
 class ProductItem extends ConsumerWidget {
 
-  const ProductItem({Key? key}): super(key: key);
+  const ProductItem({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

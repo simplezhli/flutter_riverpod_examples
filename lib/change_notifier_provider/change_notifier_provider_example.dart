@@ -25,23 +25,25 @@ class Counter extends ChangeNotifier {
 }
 
 class ChangeProviderNotifierExample extends ConsumerWidget {
+  const ChangeProviderNotifierExample({super.key});
+
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ChangeNotifierProvider'),
+        title: const Text('ChangeNotifierProvider'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'You have pushed the button this many times:',
             ),
             Consumer(
               builder: (context, ref, _) {
-                int count = ref.watch(changeNotifierProvider).count;
+                final int count = ref.watch(changeNotifierProvider).count;
                 return Text(
                   '$count',
                   style: Theme.of(context).textTheme.headline4,
@@ -55,7 +57,7 @@ class ChangeProviderNotifierExample extends ConsumerWidget {
         /// 使用read获取counterProvider。
         onPressed: () => ref.read(changeNotifierProvider).increment(),
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

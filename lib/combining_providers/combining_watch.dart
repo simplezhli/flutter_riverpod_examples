@@ -8,23 +8,25 @@ final StateProvider<String> weatherProvider = StateProvider<String>((ref) {
 });
 
 class CombiningProviderExample2 extends ConsumerWidget {
+  const CombiningProviderExample2({super.key});
+
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(title: Text('CombiningProvider')),
+      appBar: AppBar(title: const Text('CombiningProvider')),
       body: Center(
         child: Consumer(
           builder: (context, ref, _) {
             final String weather = ref.watch(weatherProvider);
-            return Text('$weather',);
+            return Text(weather,);
           },
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           /// 修改状态
-          String city = ref.read(cityProvider.notifier).state;
+          final String city = ref.read(cityProvider.notifier).state;
           if (city == 'London') {
             ref.read(cityProvider.notifier).state = "Xi'an";
           } else {
@@ -32,7 +34,7 @@ class CombiningProviderExample2 extends ConsumerWidget {
           }
         },
         tooltip: 'Refresh',
-        child: Icon(Icons.refresh),
+        child: const Icon(Icons.refresh),
       ),
     );
   }

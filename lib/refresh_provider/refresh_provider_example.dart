@@ -9,20 +9,22 @@ final FutureProvider<List<String>> productsProvider = FutureProvider((_) async {
 });
 
 class RefreshProviderExample extends StatelessWidget {
+  const RefreshProviderExample({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('RefreshProvider'),
+        title: const Text('RefreshProvider'),
       ),
       body: Center(
         child: Consumer(
           builder: (context, ref, _) {
-            AsyncValue<List<String>> productsProviderValue = ref.watch(productsProvider);
+            final AsyncValue<List<String>> productsProviderValue = ref.watch(productsProvider);
             return productsProviderValue.when(
-              loading: () => CircularProgressIndicator(),
-              error: (error, stack) => Text('Oops, something unexpected happened'),
+              loading: () => const CircularProgressIndicator(),
+              error: (error, stack) => const Text('Oops, something unexpected happened'),
               data: (list) => RefreshIndicator(
                 onRefresh: () => ref.refresh(productsProvider.future), /// 刷新
                 child: ListView(
